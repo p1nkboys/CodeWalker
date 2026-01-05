@@ -183,6 +183,7 @@ namespace CodeWalker
             this.BoundsStyleComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.OptionsLightingTabPage = new System.Windows.Forms.TabPage();
+            this.NoSkyCheckbox = new System.Windows.Forms.CheckBox();
             this.HDLightsCheckBox = new System.Windows.Forms.CheckBox();
             this.DeferredShadingCheckBox = new System.Windows.Forms.CheckBox();
             this.WeatherRegionComboBox = new System.Windows.Forms.ComboBox();
@@ -2317,6 +2318,7 @@ namespace CodeWalker
             // 
             // OptionsLightingTabPage
             // 
+            this.OptionsLightingTabPage.Controls.Add(this.NoSkyCheckbox);
             this.OptionsLightingTabPage.Controls.Add(this.HDLightsCheckBox);
             this.OptionsLightingTabPage.Controls.Add(this.DeferredShadingCheckBox);
             this.OptionsLightingTabPage.Controls.Add(this.WeatherRegionComboBox);
@@ -2349,6 +2351,17 @@ namespace CodeWalker
             this.OptionsLightingTabPage.TabIndex = 2;
             this.OptionsLightingTabPage.Text = "Lighting";
             this.OptionsLightingTabPage.UseVisualStyleBackColor = true;
+            // 
+            // NoSkyCheckbox
+            // 
+            this.NoSkyCheckbox.AutoSize = true;
+            this.NoSkyCheckbox.Location = new System.Drawing.Point(89, 71);
+            this.NoSkyCheckbox.Name = "NoSkyCheckbox";
+            this.NoSkyCheckbox.Size = new System.Drawing.Size(61, 17);
+            this.NoSkyCheckbox.TabIndex = 56;
+            this.NoSkyCheckbox.Text = "No Sky";
+            this.NoSkyCheckbox.UseVisualStyleBackColor = true;
+            this.NoSkyCheckbox.CheckedChanged += new System.EventHandler(this.NoSky_CheckedChanged);
             // 
             // HDLightsCheckBox
             // 
@@ -3978,5 +3991,6 @@ namespace CodeWalker
         private System.Windows.Forms.ToolStripMenuItem ToolsMenuAudioExplorer;
         private System.Windows.Forms.CheckBox SaveTimeOfDayCheckBox;
         private System.Windows.Forms.CheckBox SavePositionCheckBox;
+        private System.Windows.Forms.CheckBox NoSkyCheckbox;
     }
 }

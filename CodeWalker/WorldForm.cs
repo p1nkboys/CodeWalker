@@ -8016,6 +8016,12 @@ namespace CodeWalker
             SubtitleTimer.Enabled = false;
             SubtitleLabel.Visible = false;
         }
+
+        private void NoSky_CheckedChanged(object sender, EventArgs e)
+        {
+            // เรียกใช้ผ่านชื่อ Class "Renderer" (R ใหญ่) ได้เลย เพราะมันเป็น static แล้ว
+            CodeWalker.Rendering.DXManager.NoSkyMode = NoSkyCheckbox.Checked;
+        }
     }
 
     public enum WorldControlMode

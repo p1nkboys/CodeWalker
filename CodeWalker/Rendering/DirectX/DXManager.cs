@@ -34,7 +34,32 @@ namespace CodeWalker.Rendering
         private object syncroot = new object(); //for thread safety
         public int multisamplecount { get; private set; } = 4; //should be a setting..
         public int multisamplequality { get; private set; } = 0; //should be a setting...
-        public Color clearcolour { get; private set; } = new Color(0.2f, 0.4f, 0.6f, 1.0f); //gross
+        //public Color clearcolour { get; set; } = new Color(0.2f, 0.4f, 0.6f, 1.0f); //gross
+
+        public static bool NoSkyMode = false;
+
+        private Color _backingColour = new Color(0.2f, 0.4f, 0.6f, 1.0f);
+
+        public Color clearcolour
+        {
+            get
+            {
+                // ด่านตรวจ: ถ้าเปิดโหมด NoSky ให้ส่งสีดำออกไปหลอกโปรแกรม
+                if (NoSkyMode)
+                {
+                    return SharpDX.Color.Black;
+                }
+
+                // ถ้าปิดโหมด (หรือไม่ได้ติ๊ก) ให้ส่งสีฟ้าที่จำไว้ (_backingColour) ออกไป
+                return _backingColour;
+            }
+            set
+            {
+                // ถ้ามีการสั่งเปลี่ยนสี ให้บันทึกลงในตัวจำค่า
+                _backingColour = value;
+            }
+        }
+
         private System.Drawing.Size beginSize;
         private ViewportF Viewport;
         private bool autoStartLoop = false;
